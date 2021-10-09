@@ -1,11 +1,24 @@
 package JavaHerançajdev;
 
-public class Diretor extends Pessoa {
+import JavaInterfaces.PermitirAcesso;
+
+public class Diretor extends Pessoa implements PermitirAcesso {
 
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
+	private String loguin;
+	private String senha;
 	
+	public Diretor(String loguin, String senha) {
+		this.loguin = loguin;
+		this.senha = senha;
+		
+	}
+	
+	public Diretor() {
+
+	}
 	
 	public String getRegistroEducacao() {
 		return registroEducacao;
@@ -38,7 +51,19 @@ public class Diretor extends Pessoa {
 		// TODO Auto-generated method stub
 		return 3500.78;
 	}
+	@Override
+	public boolean autenticar(String loguin, String senha) {
+		this.loguin = loguin;
+		this.senha = senha;
+		return autenticar();
+		
+	}
 
+	@Override
+	public boolean autenticar() {
+		
+		return loguin.equals("joao pedro") && senha.equals("123");
+		}
 	
 	
 }

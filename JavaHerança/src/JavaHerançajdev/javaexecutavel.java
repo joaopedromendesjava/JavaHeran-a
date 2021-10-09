@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-
-import JavaInterfaces.PermitirAcesso;
+import classesAuxiliares.funcaoAutenticacao;
 
 public class javaexecutavel {
 
@@ -13,11 +12,10 @@ public class javaexecutavel {
 		
 		String loguin = JOptionPane.showInputDialog("Informe o loguin");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
-		
-		PermitirAcesso permitirAcesso = new Secretaria(loguin,senha);
+
 
 		
-		if (permitirAcesso.autenticar()){ // se true acessa se false nao acessa
+		if (new funcaoAutenticacao(new Diretor(loguin, senha)).autenticar()){ // vou travar o contrato para autorizar somente quem realmente tem o contrato 100% legitmo
 		
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
@@ -127,7 +125,7 @@ public class javaexecutavel {
 			System.out.println("Resultado = " +aluno.getAlunoAprovado() + " com media de = " + aluno.getMediaNota());	
 		}
 
-		}else {
+		} else {
 				JOptionPane.showMessageDialog(null, "Acesso nao permitido");
 		}
 	

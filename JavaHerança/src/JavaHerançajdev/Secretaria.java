@@ -11,11 +11,12 @@ public class Secretaria extends Pessoa implements PermitirAcesso {
 	private String loguin;
 	private String senha;
 	
-	public Secretaria (String loguin, String senha) {
-		this.loguin = loguin;
-		this.senha = senha;
-	}
 	
+	public Secretaria(String loguin, String senha) {
+	this.loguin = loguin;
+	this.senha = senha;
+	}
+		
 	public Secretaria() {
 		
 	}
@@ -52,21 +53,23 @@ public class Secretaria extends Pessoa implements PermitirAcesso {
 	
 	// ESSE É O METODO DO CONTRATO DE AUTENTICAÇÃO 
 	
-	
-	@Override
-	public boolean autenticar(String loguin, String senha) {
-		
-		
-		return autenticar();
-	}
-	@Override
-	public boolean autenticar() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
+
+	@Override
+	public boolean autenticar(String loguin, String senha) {
+		this.loguin = loguin;
+		this.senha = senha;
+		return autenticar();
+		
+	}
+
+	@Override
+	public boolean autenticar() {
+		
+		return loguin.equals("admin") && senha.equals("admin");
 		}
+}
 	
 	
 
