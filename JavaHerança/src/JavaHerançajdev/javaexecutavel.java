@@ -7,30 +7,35 @@ import javax.swing.JOptionPane;
 import classesAuxiliares.funcaoAutenticacao;
 
 public class javaexecutavel {
+	
+	
 
 	public static void main(String[] args) {
+		try {
+		
 		
 		String loguin = JOptionPane.showInputDialog("Informe o loguin");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 
-
+ 
 		
 		if (new funcaoAutenticacao(new Diretor(loguin, senha)).autenticar()){ // vou travar o contrato para autorizar somente quem realmente tem o contrato 100% legitmo
 		
 		
-		List<Aluno> alunos = new ArrayList<Aluno>();
+			List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		/* é uma lista que dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
+			/* é uma lista que dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
 	
 		
-		for (int qtd = 1; qtd <=5; qtd++) {
+		for (int qtd = 1; qtd <=2; qtd++) {
 			
 		
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " +qtd+ " ?");
-		/*String idade = JOptionPane.showInputDialog("Qual a idade do aluno?");
-		String dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento do aluno?");
+		String idade = JOptionPane.showInputDialog("Qual a idade do aluno?");
+		
+		/*String dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento do aluno?");
 		String registroGeral = JOptionPane.showInputDialog("Qual o RG do aluno?");
 		String NumeroCPF = JOptionPane.showInputDialog("Qual o CPF do aluno?");
 		String NomeMae = JOptionPane.showInputDialog("Qual o nome da mae do aluno?");
@@ -43,8 +48,9 @@ public class javaexecutavel {
 		Aluno aluno1 = new Aluno(); 
 		
 		aluno1.setNome(nome);
-		/*aluno1.setIdade(Integer.valueOf(idade));
-		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setIdade(Integer.valueOf(idade));
+		
+		/*aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(registroGeral);
 		aluno1.setNumeroCPF(NumeroCPF);
 		aluno1.setNomeMae(NomeMae);
@@ -59,7 +65,7 @@ public class javaexecutavel {
 			
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
-			disciplina.setNota(Double.valueOf(notaDisciplina));
+			//disciplina.setNota(Double.valueOf(notaDisciplina));
 			
 			aluno1.getDisciplinas().add(disciplina);
 			
@@ -123,18 +129,49 @@ public class javaexecutavel {
 			System.out.println("Nome do aluno = " + aluno.getNome());
 			System.out.println(" Materia é = " + aluno.getDisciplinas());
 			System.out.println("Resultado = " +aluno.getAlunoAprovado() + " com media de = " + aluno.getMediaNota());	
-		}
+			}
 
 		} else {
 				JOptionPane.showMessageDialog(null, "Acesso nao permitido");
+			}
+	
+		
+		} catch (Exception e) {
+			
+			StringBuilder saida = new StringBuilder();
+			
+			e.printStackTrace();// imprime erro no console java
+			
+			for (int pos = 0; pos < e.getStackTrace().length; pos++) {
+				
+				saida.append("\n classe de erro " + e.getStackTrace()[pos].getClassName());
+				saida.append("\n Metodo de erro " + e.getStackTrace()[pos].getMethodName());
+				saida.append("\n Linha de erro " + e.getStackTrace()[pos].getLineNumber());
+				saida.append("\n class " + e.getClass().getName());
+			}
+			
+			
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas" + saida.toString());
+			
+		
+		
+		
+		
+			} finally { // sempre é executado ocorrendo erros ou nao 
+				// sempre é usado quando se precisa executar um processo acontecendo erro ou nao!
+				
+				JOptionPane.showMessageDialog(null, " Operação encerrada, Obrigado! ");
+			
+				
+				
+			}
+		
 		}
-	
-		
 	}
 	
 	
 		
-		
-	}
+	
+
 
 
