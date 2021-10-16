@@ -6,33 +6,78 @@ import javax.swing.JOptionPane;
 
 public class ArrayVetor {
 	
-	// usado para executar codigo
+		// usado para executar codigo
 	public static void main(String[] args) {
 		
 		// criacao do aluno
 		
-		double[] notas = {15.8,9.7,7.6,6.8};
-		double[] notasLogica = {10.8,9.0,7.1,9.8};
+		double[] notasDiscp1 = {15.8,9.7,7.6,6.8};
+		double[] notasDiscp2 = {10.8,9.0,7.1,5.8};
+		double[] notasDiscp3 = {1.8,9.9,5.6,1.8};
+		double[] notasDiscp4= {99.8,56.0,5.1,7.8};
 		
 		
 		Aluno aluno = new Aluno();
-		aluno.setNome("Joao pedro");
-		aluno.setNomeEscola("Jdev treinamento");
+		aluno.setNome(JOptionPane.showInputDialog("Qual o nome do aluno 1"));
+		aluno.setNomeEscola("UniBH");
 		
 		// criacao da disciplina
 		Disciplina disciplina = new Disciplina();
 		disciplina.setDisciplina(JOptionPane.showInputDialog("Qual a disciplina 1?"));
-		disciplina.setNota(notas);
+		disciplina.setNota(notasDiscp1);
 	
 		aluno.getDisciplinas().add(disciplina);
 		
 		Disciplina disciplina2 = new Disciplina();
 		disciplina2.setDisciplina(JOptionPane.showInputDialog("Qual a disciplina 2?"));
-		disciplina2.setNota(notasLogica);
+		disciplina2.setNota(notasDiscp2);
 		
 		aluno.getDisciplinas().add(disciplina2);
 		
+		Aluno aluno2 = new Aluno();
+		aluno2.setNome(JOptionPane.showInputDialog("Qual o nome do aluno 2"));
+		aluno2.setNomeEscola("UFMG");
 		
+		// criacao da disciplina
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina(JOptionPane.showInputDialog("Qual a disciplina 3?"));
+		disciplina3.setNota(notasDiscp3);
+	
+		aluno2.getDisciplinas().add(disciplina3);
+		
+		Disciplina disciplina4 = new Disciplina();
+		disciplina4.setDisciplina(JOptionPane.showInputDialog("Qual a disciplina 4?"));
+		disciplina4.setNota(notasDiscp4);
+		
+		aluno2.getDisciplinas().add(disciplina4);
+		
+		Aluno[]ArrayAlunos = new Aluno[2];
+
+		ArrayAlunos[0] = aluno;
+		ArrayAlunos[1] = aluno2;
+	
+		for (int pos = 0; pos < ArrayAlunos.length; pos ++) {
+		System.out.println("Nome do aluno é: " + ArrayAlunos[pos].getNome());
+	
+		for (Disciplina discp : ArrayAlunos[pos].getDisciplinas()) {
+			System.out.println("Nome da disciplina é: " + discp.getDisciplina());	
+		
+			for (int posnota = 0; posnota < discp.getNota().length; posnota++) {
+			System.out.println("A nota numero: " + posnota + " é igual = " + discp.getNota()[posnota]);
+			
+				}
+		
+			}
+	
+	
+	
+		}
+		
+	}
+}
+		
+		
+	/*	
 		System.out.println("Nome do aluno = " + aluno.getNome() + " inscrito no curso = " + aluno.getNomeEscola());
 		System.out.println("-------------------Disciplina do aluno ----------------------");
 		
@@ -59,25 +104,14 @@ public class ArrayVetor {
 				}else {
 					if(discp.getNota()[pos] < notaMenor) {
 						notaMenor = discp.getNota()[pos];
-					}
-			}
-		}
-			System.out.println("A maior nota da disciplina = " + discp.getDisciplina() + " é o valor de " + notaMax);
+					} 
+			} */
+		
+		/*	System.out.println("A maior nota da disciplina = " + discp.getDisciplina() + " é o valor de " + notaMax);
 			System.out.println("A menor nota da disciplina = " + discp.getDisciplina() + " é o valor de " + notaMenor);
 		
-			
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*	podemos atribuir valores dessas duas formas diretamente ou separando 
+			podemos atribuir valores dessas duas formas diretamente ou separando 
 
 		String[] valores = {"alex", "97.2", "Curso java", "Contato joaopedromendessilva@gmial.com"};
 			
@@ -102,11 +136,3 @@ public class ArrayVetor {
 			System.out.println("Nota " + (pos + 1) + " é = " + notas[pos]);
 		}
 			*/
-	
-	
-		}
-	
-	}
-	
-
-}
