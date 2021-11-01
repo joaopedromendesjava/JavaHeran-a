@@ -9,7 +9,7 @@ public class DatasemJava7 {
 		
 		LocalDate localdate = LocalDate.now();
 		System.out.println("Data atual: " + localdate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-		
+	
 		System.out.println("Dia da semana: " + localdate.getDayOfWeek());
 		
 		System.out.println("Dia da semana em numero: " + localdate.getDayOfWeek().ordinal());
@@ -22,6 +22,6 @@ public class DatasemJava7 {
 		
 		System.out.println("Ano " + localdate.getYear());
 			
-		
+	
 	}
 }

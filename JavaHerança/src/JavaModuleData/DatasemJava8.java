@@ -8,7 +8,7 @@ public class DatasemJava8 {
 	public static void main(String[] args) throws InterruptedException {
 		
 		Instant inicio = Instant.now();
-		
+	
 		Thread.sleep(2000); // pode ser um processo com um tempo qualquer que nao conhecemos 
 		
 		Instant ifinal = Instant.now();
