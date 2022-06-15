@@ -5,8 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class implementacaoFilaThread extends Thread {
 	
-	private static ConcurrentLinkedQueue<ObjetoFilaThread> pilha_fila = 
-			         new ConcurrentLinkedQueue<ObjetoFilaThread>();
+	private static ConcurrentLinkedQueue<ObjetoFilaThread> pilha_fila = new ConcurrentLinkedQueue<ObjetoFilaThread>();
 			
 	public static void add(ObjetoFilaThread filaThread) {
 		pilha_fila.add(filaThread);
@@ -24,6 +23,7 @@ public class implementacaoFilaThread extends Thread {
 				synchronized (pilha_fila) { // bloquear o acesso a essa lista por outros processos
 			
 			Iterator iteracao = pilha_fila.iterator();
+			
 			while(iteracao.hasNext()) { // enquanto conter dados na lista ira processar
 				
 				ObjetoFilaThread processar = (ObjetoFilaThread) iteracao.next(); // pega o objeto atual

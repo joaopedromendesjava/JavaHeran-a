@@ -8,7 +8,7 @@ public class splitArray {
 
 		public static void main(String[] args) {
 			
-			String texto = "joao pedro, curso java, 80, 70, 90, 89 ";
+			String texto = "joao pedro, curso java, 80, 70, 90, 89, 88 ";
 			
 			String[] valoresArray = texto.split(",");
 			
@@ -18,6 +18,7 @@ public class splitArray {
 			System.out.println("nota 2: " + valoresArray[3]);
 			System.out.println("nota 3: " + valoresArray[4]);
 			System.out.println("nota 4: " + valoresArray[5]);
+			System.out.println("nota 5: " + valoresArray[6]);
 			
 			// convertendo um Array em uma lista
 			
